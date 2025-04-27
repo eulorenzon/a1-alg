@@ -47,7 +47,7 @@ void salvarConta(PConta conta) {
         printf("Erro ao abrir o arquivo pra salvar a conta!\n");
         return;
     }
-    fprint(arquivo, "%d;%s;%.2f;%c\n", conta->numero, conta->nomeUser, conta->saldo, conta->tipo);
+    fprintf(arquivo, "%d;%s;%.2f;%c\n", conta->numero, conta->nomeUser, conta->saldo, conta->tipo);
     fclose(arquivo);
 }
 
@@ -82,6 +82,7 @@ int main() {
         switch (opcao) {
             case 1:
                 minhaConta = criarConta();
+                salvarConta(minhaConta);
                 break;
             case 2:
                 verConta(minhaConta);
