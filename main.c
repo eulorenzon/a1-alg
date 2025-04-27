@@ -41,6 +41,15 @@ PConta criarConta() {
 
     return conta;
 }
+void salvarconta(Pconta conta) {
+    FILE *arquivo = fopen("contas.txt", "a");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo pra salvar a conta!\n");
+        return;
+    }
+    fprint(arquivo, "%d;%s;%.2f;%c\n", conta->numero, conta->nomeUser, conta->saldo, conta->tipo);
+    fclose(arquivo);
+}
 
 void verConta(PConta conta) {
     if (conta == NULL) {
